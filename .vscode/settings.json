@@ -2,5 +2,12 @@
     "liveServer.settings.port": 5501,
     "eslint.options": {
         "ignorePattern": "webpack.config.js",
-    }
+    },
+    "liveSassCompile.settings.formats":[
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/dist/css"
+        }
+    ]
 }
