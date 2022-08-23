@@ -1,8 +1,10 @@
 const mainContent = document.querySelector(".main-content");
 
-function displayWeather(data) {
+function displayWeather(data, unit) {
   const weatherDisplay = document.createElement("div");
   weatherDisplay.classList.add("weatherDisplay");
+  const speedUnit = unit === "imperial" ? "mph" : "m/s";
+  const tempUnit = unit === "imperial" ? "F" : "C";
   weatherDisplay.innerHTML = `<div class="weatherDisplay">
         <div class="weatherHeader">
             <h2 class="city">${data.name}, ${data.country}</h2>
@@ -12,8 +14,8 @@ function displayWeather(data) {
             <div class="left">
                 <img src="http://openweathermap.org/img/wn/${
                   data.weatherIcon
-                }@2x.png" alt="Current Weather Icon">
-                <h2 class="temperature">${Math.round(data.temp)}&#176;F</h2>
+                }@2x.png" alt="${data.weatherDesc} icon">
+                <h2 class="temperature">${Math.round(data.temp)}&#176;${tempUnit}</h2>
                 <h3 class="description">${data.weatherDesc}</h3>
             </div>
             <div class="right">
@@ -26,7 +28,7 @@ function displayWeather(data) {
                     <h4 class="detailLabel">High</h4>
                 </div>
                 <div class="detail windSpeed">
-                    <h3 class="detailTitle">${data.wind} mph</h3>
+                    <h3 class="detailTitle">${data.wind} ${speedUnit}</h3>
                     <h4 class="detailLabel">Wind Speed</h4>
                 </div>
                 <div class="detail humidity">
@@ -55,4 +57,12 @@ function clearDisplay() {
   mainContent.removeChild(display);
 }
 
-export { displayWeather, clearDisplay };
+function sliderButton() {
+    const button = document.querySelector('.tempToggle');
+    if (button.checked) {
+        return "metric";
+    }
+    return "imperial";
+}
+
+export { displayWeather, clearDisplay, sliderButton};

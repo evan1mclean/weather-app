@@ -1,15 +1,17 @@
-export default async function getWeather(location) {
+export default async function getWeather(location, unit) {
   try {
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&APPID=1323615d8996a794c40fb7f6537c554f`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=${unit}&APPID=1323615d8996a794c40fb7f6537c554f`,
       { mode: "cors" }
     );
     const data = await response.json();
     const processedData = processWeatherData(data);
     return processedData;
   } catch (error) {
-    alert('Uh oh! Something went wrong here. Please try entering location in the format "City", or "City, Country".');
     console.log("Error: ", error);
+    alert(
+      'Uh oh! Something went wrong here. Please try entering the location in the format: "City", "City, Country", or "City, State".'
+    );
   }
 }
 
