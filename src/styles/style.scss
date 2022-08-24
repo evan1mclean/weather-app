@@ -41,12 +41,14 @@ h4 {
   }
   & .getWeather {
     display: flex;
+    justify-content: space-between;
     gap: 20px;
+    width: 100%;
     & input {
       font: inherit;
       font-size: 1.2rem;
       padding: 10px 20px;
-      width: 300px;
+      flex: 1;
       height: 60px;
       border: none;
       border-radius: 8px;
@@ -236,11 +238,6 @@ input:checked + .slider:before {
 }
 
 @media only screen and (max-width: 500px) {
-  #searchLocation {
-    align-self: flex-start;
-    width: 250px;
-  }
-
   .weatherDisplay .weatherContent .left,
   .weatherDisplay .weatherContent .right {
     height: 200px;
