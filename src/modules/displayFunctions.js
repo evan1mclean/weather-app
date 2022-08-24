@@ -6,8 +6,7 @@ function displayWeather(data, unit) {
   weatherDisplay.classList.add("weatherDisplay");
   const speedUnit = unit === "imperial" ? "mph" : "m/s";
   const tempUnit = unit === "imperial" ? "F" : "C";
-  weatherDisplay.innerHTML = `<div class="weatherDisplay">
-        <div class="weatherHeader">
+  weatherDisplay.innerHTML = `<div class="weatherHeader">
             <h2 class="city">${data.name}, ${data.country}</h2>
             <h3 class="date">${data.date}</h3>
         </div>
@@ -45,8 +44,7 @@ function displayWeather(data, unit) {
                     <h4 class="detailLabel">Pressure</h4>
                 </div>
             </div>
-        </div>
-    </div>`;
+        </div>`;
   mainContent.appendChild(weatherDisplay);
 }
 
