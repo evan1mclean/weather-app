@@ -1,5 +1,6 @@
 const mainContent = document.querySelector(".main-content");
 
+//Function that takes the processed weather data and creates the display
 function displayWeather(data, unit) {
   const weatherDisplay = document.createElement("div");
   weatherDisplay.classList.add("weatherDisplay");
@@ -57,6 +58,7 @@ function clearDisplay() {
   mainContent.removeChild(display);
 }
 
+//If the slider is checked, return metric units, else imperial units
 function sliderButton() {
     const button = document.querySelector('.tempToggle');
     if (button.checked) {

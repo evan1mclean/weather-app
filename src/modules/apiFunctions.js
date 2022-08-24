@@ -5,7 +5,7 @@ export default async function getWeather(location, unit) {
       { mode: "cors" }
     );
     const data = await response.json();
-    const processedData = processWeatherData(data);
+    const processedData = filterWeatherData(data);
     return processedData;
   } catch (error) {
     console.log("Error: ", error);
@@ -15,7 +15,8 @@ export default async function getWeather(location, unit) {
   }
 }
 
-function processWeatherData(data) {
+//Function to take in the API response and filter it down to only the data I want
+function filterWeatherData(data) {
   const date = new Date();
   const day = date.toLocaleString("en-US", {
     weekday: "long",
