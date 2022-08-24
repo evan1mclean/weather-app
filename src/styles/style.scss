@@ -237,7 +237,8 @@ input:checked + .slider:before {
 
 @media only screen and (max-width: 500px) {
   #searchLocation {
-    width: 200px;
+    align-self: flex-start;
+    width: 250px;
   }
 
   .weatherDisplay .weatherContent .left,
